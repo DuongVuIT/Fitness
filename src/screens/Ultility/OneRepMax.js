@@ -4,7 +4,7 @@ import React from 'react';
 export default function OneRepMax() {
   return (
     <View>
-      <Text>OneRepMaxxx</Text>
+      <Text>OneRepMax</Text>
     </View>
   );
 }
