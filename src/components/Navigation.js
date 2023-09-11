@@ -37,6 +37,7 @@ import Bicep from '../screens/Bicep/Bicep';
 import Ultility from '../screens/Ultility/Ultility';
 import BmiCalculator from '../screens/Ultility/BmiCalculator';
 import Neck from '../screens/Neck/Neck';
+import OneRepMax from '../screens/Ultility/OneRepMax';
 const Tab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -201,6 +202,11 @@ const Navigation = () => {
           name="Bmi"
           options={{headerTitle: 'BMI CALCULATOR'}}
           component={BmiCalculator}
+        />
+        <Stack.Screen
+          name="repmax"
+          options={{headerTitle: 'ONE REP MAX'}}
+          component={OneRepMax}
         />
         <Stack.Screen name="Neck" component={Neck} />
       </Stack.Navigator>

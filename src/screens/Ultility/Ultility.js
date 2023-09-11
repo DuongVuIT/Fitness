@@ -22,7 +22,7 @@ export default function Ultility({navigation}) {
           </View>
         </View>
       </TouchableWithoutFeedback>
-      <TouchableWithoutFeedback onPress={() => navigation.navigate('Bmi')}>
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('repmax')}>
         <View style={styles.view_center}>
           <View style={styles.view_img}>
             <Image

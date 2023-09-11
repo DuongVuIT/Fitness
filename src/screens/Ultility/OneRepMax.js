@@ -1,7 +1,19 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  TextInput,
+  Image,
+} from 'react-native';
+import React, {useState} from 'react';
+import Icomoon from 'react-native-icomoon';
+import selection from '../../components/icons/selection.json';
+import ScrollPicker from 'react-native-wheel-scrollview-picker';
 export default function OneRepMax() {
+  const [weight, setWeight] = useState(0);
+  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -18,7 +30,7 @@ export default function OneRepMax() {
             />
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
               <View style={{marginRight: 45}}>
-                <TouchableOpacity onPress={ReduceCount}>
+                <TouchableOpacity>
                   <Icomoon
                     name="minus"
                     size={30}
@@ -28,7 +40,7 @@ export default function OneRepMax() {
                 </TouchableOpacity>
               </View>
               <View>
-                <TouchableOpacity onPress={Increase}>
+                <TouchableOpacity>
                   <Icomoon
                     name="plus"
                     size={30}
@@ -41,36 +53,27 @@ export default function OneRepMax() {
           </View>
           <View style={styles.view_weight}>
             <Text style={styles.text_weight}>HEIGHT(CM)</Text>
-            <TextInput
-              placeholder="0"
-              placeholderTextColor={'black'}
-              style={styles.text_input}
-              value={height.toString()}
-              keyboardType="numeric"
-              onChangeText={text => setHeight(parseInt(text) || 0)}
+            <ScrollPicker
+              dataSource={data}
+              // selectedIndex={0}
+              renderItem={(data, index, isSelected) => {
+                return (
+                  <Text
+                    style={{
+                      fontSize: 20,
+                      textAlign: 'center',
+                      color: 'black',
+                    }}>
+                    {data}
+                  </Text>
+                );
+              }}
+              wrapperBackground={'#FFFFFF'}
+              itemHeight={100}
+              highlightColor={'#d8d8d8'}
+              highlightBorderWidth={0}
+              itemColor={'#B4B4B4'}
             />
-            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-              <View style={{marginRight: 45}}>
-                <TouchableOpacity onPress={HeightReduce}>
-                  <Icomoon
-                    name="minus"
-                    size={30}
-                    color="blue"
-                    iconSet={selection}
-                  />
-                </TouchableOpacity>
-              </View>
-              <View>
-                <TouchableOpacity onPress={HeightIncrease}>
-                  <Icomoon
-                    name="plus"
-                    size={30}
-                    color="blue"
-                    iconSet={selection}
-                  />
-                </TouchableOpacity>
-              </View>
-            </View>
           </View>
         </View>
         <View style={styles.bmi_container}>
@@ -80,62 +83,8 @@ export default function OneRepMax() {
               color: 'black',
               fontSize: 20,
             }}>
-            BMI: {bmi}
+            1RM
           </Text>
-        </View>
-        <View style={styles.bmi_table_container}>
-          <View
-            style={{
-              alignItems: 'center',
-              flexDirection: 'row',
-            }}>
-            <Image
-              source={require('../../../assets/images/bmi.jpg')}
-              style={{height: 40, width: 40, marginLeft: 5, marginTop: 5}}
-            />
-            <Text
-              style={{
-                color: 'black',
-                fontSize: 20,
-                marginLeft: 10,
-                marginTop: 10,
-              }}>
-              BMI TABLE
-            </Text>
-          </View>
-
-          <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-            }}>
-            <Text style={styles.text_range}>BMI RANGE</Text>
-
-            <Text style={styles.text_category}>CATEGORY</Text>
-          </View>
-          <View
-            style={{
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexDirection: 'row',
-            }}>
-            <Text style={styles.text_range}>
-              Less than 16 {'\n\n'}
-              16 - 18.5 {'\n\n'}
-              18.5 - 25{'\n\n'}
-              25 - 30{'\n\n'}
-              About 30{'\n\n'}
-            </Text>
-
-            <Text style={styles.text_category}>
-              Severely Underweight {'\n\n'}
-              Underweight {'\n\n'}
-              Normal{'\n\n'}
-              Overweight{'\n\n'}
-              Obese{'\n\n'}
-            </Text>
-          </View>
         </View>
         <View style={styles.containerBmi}>
           <View
@@ -160,21 +109,8 @@ export default function OneRepMax() {
 
           <View>
             <Text style={styles.information}>
-              - BMI is a measurement of a person's leanness of corpulence based
-              on their height and weight, and is intended to quantify tissues
-              mass.{'\n'}- It is widely used as a general indicator of whether a
-              person has a healthy body weight for their height. Specifically,
-              the value obtained from the calculation of BMI is used to
-              categorize whether a person is underweight, normal weight,
-              overweight, or obese depending on what range the value falls
-              between.{'\n'}- There ranges of BMI vary based on factors such as
-              region and age, and are sometimes further divided into
-              subcategories such as severely underweight or very severely obese.
-              Being overweight or underweight can have significant health
-              effects, so while BMI is an imperfect measure of healthy body
-              weight, it is a useful indicator of whether any additional testing
-              or action is required.{'\n'} - Refer to the above table to see the
-              different categories based on BMI that are used by the calculator.
+              Type in the weight you have been using and the number of
+              repetiotion which you used with that weight
             </Text>
           </View>
         </View>
@@ -189,7 +125,7 @@ export default function OneRepMax() {
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
         }}>
-        <TouchableOpacity onPress={Calculator}>
+        <TouchableOpacity>
           <Text style={{fontSize: 20, color: 'white'}}>CALCULATOR</Text>
         </TouchableOpacity>
       </View>
@@ -230,16 +166,6 @@ const styles = StyleSheet.create({
     marginRight: 10,
     backgroundColor: '#ffffff',
     justifyContent: 'center',
-    // alignItems: 'center',
-  },
-  bmi_table_container: {
-    marginLeft: 7,
-    marginRight: 7,
-    flex: 1,
-    height: 330,
-    marginTop: 10,
-    borderRadius: 10,
-    backgroundColor: '#ffffff',
   },
   text_range: {
     color: 'black',
@@ -248,20 +174,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '40%',
   },
-  text_category: {
-    color: 'black',
-    fontSize: 20,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
-    width: '60%',
-    textAlign: 'center',
-  },
   containerBmi: {
     marginLeft: 7,
     marginRight: 7,
     flex: 1,
-    height: 580,
+    height: 150,
     marginTop: 10,
     borderRadius: 10,
     backgroundColor: '#ffffff',
