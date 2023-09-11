@@ -10,10 +10,40 @@ import {
 import React, {useState} from 'react';
 import Icomoon from 'react-native-icomoon';
 import selection from '../../components/icons/selection.json';
-import ScrollPicker from 'react-native-wheel-scrollview-picker';
 export default function OneRepMax() {
   const [weight, setWeight] = useState(0);
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  const [lbs, setLbs] = useState('');
+  const [scrollY, setScrollY] = useState(0);
+  const [kilo, setKg] = useState('');
+
+  const renderItem = ({item}) => (
+    <Text style={{textAlign: 'center', padding: 16}}>{item}</Text>
+  );
+
+  function calculateRepMax() {
+    const parsedWeight = parseFloat(weight);
+
+    if (!isNaN(parsedWeight) && parsedWeight > 0) {
+      const itemHeight = 95;
+      const index = Math.floor(scrollY / itemHeight);
+      const selectedValue = data[index];
+      console.log('Selected Value:', selectedValue);
+      const lbs = weight * (1 + 0.0333 * selectedValue);
+      console.log('lbs ' + lbs);
+      setLbs(lbs.toFixed(2));
+      setKg((lbs / 2.02436).toFixed(2));
+      console.log(kilo);
+    }
+  }
+  function Increase() {
+    setWeight(weight + 1);
+  }
+  function ReduceCount() {
+    if (weight > 0) {
+      setWeight(weight - 1);
+    }
+  }
+  const data = Array.from({length: 12}, (_, i) => i + 1);
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -30,7 +60,7 @@ export default function OneRepMax() {
             />
             <View style={{flexDirection: 'row', justifyContent: 'center'}}>
               <View style={{marginRight: 45}}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={ReduceCount}>
                   <Icomoon
                     name="minus"
                     size={30}
@@ -40,7 +70,7 @@ export default function OneRepMax() {
                 </TouchableOpacity>
               </View>
               <View>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={Increase}>
                   <Icomoon
                     name="plus"
                     size={30}
@@ -52,11 +82,11 @@ export default function OneRepMax() {
             </View>
           </View>
           <View style={styles.view_weight}>
-            <Text style={styles.text_weight}>HEIGHT(CM)</Text>
-            <ScrollPicker
+            <Text style={styles.text_weight}>REP MAX</Text>
+            {/* <ScrollPicker
               dataSource={data}
-              // selectedIndex={0}
-              renderItem={(data, index, isSelected) => {
+              selectedIndex={0}
+              renderItem={data => {
                 return (
                   <Text
                     style={{
@@ -68,12 +98,31 @@ export default function OneRepMax() {
                   </Text>
                 );
               }}
+              onValueChange={value => {
+                setRep(value);
+                // setSelectedvalue(value);
+              }}
               wrapperBackground={'#FFFFFF'}
               itemHeight={100}
               highlightColor={'#d8d8d8'}
               highlightBorderWidth={0}
               itemColor={'#B4B4B4'}
-            />
+            /> */}
+            <ScrollView
+              onScroll={event => setScrollY(event.nativeEvent.contentOffset.y)}>
+              {data.map((item, index) => (
+                <Text
+                  style={{
+                    textAlign: 'center',
+                    color: 'black',
+                    fontSize: 30,
+                    margin: 30,
+                  }}
+                  key={index}>
+                  {item}
+                </Text>
+              ))}
+            </ScrollView>
           </View>
         </View>
         <View style={styles.bmi_container}>
@@ -85,6 +134,12 @@ export default function OneRepMax() {
             }}>
             1RM
           </Text>
+          <Text
+            style={{
+              textAlign: 'center',
+              fontSize: 18,
+              color: 'black',
+            }}>{`${lbs} lbs = ${kilo} kg`}</Text>
         </View>
         <View style={styles.containerBmi}>
           <View
@@ -94,14 +149,14 @@ export default function OneRepMax() {
             }}>
             <Image
               source={require('../../../assets/images/iconinfo.jpg')}
-              style={{height: 40, width: 40, marginLeft: 5, marginTop: 10}}
+              style={{height: 40, width: 40, marginLeft: 5}}
             />
             <Text
               style={{
                 color: 'black',
                 fontSize: 20,
                 marginLeft: 10,
-                marginTop: 10,
+                // marginTop: 10,
               }}>
               INFORMATION
             </Text>
@@ -125,7 +180,7 @@ export default function OneRepMax() {
           borderTopLeftRadius: 10,
           borderTopRightRadius: 10,
         }}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => calculateRepMax()}>
           <Text style={{fontSize: 20, color: 'white'}}>CALCULATOR</Text>
         </TouchableOpacity>
       </View>
@@ -153,6 +208,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   text_input: {
+    marginTop: 10,
     alignSelf: 'center',
     color: 'black',
     fontSize: 20,
@@ -161,7 +217,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 10,
     borderRadius: 10,
-    height: 40,
+    height: 50,
     marginLeft: 10,
     marginRight: 10,
     backgroundColor: '#ffffff',
@@ -178,7 +234,7 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     marginRight: 7,
     flex: 1,
-    height: 150,
+    height: 120,
     marginTop: 10,
     borderRadius: 10,
     backgroundColor: '#ffffff',
