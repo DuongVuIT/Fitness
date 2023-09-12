@@ -17,7 +17,6 @@ import 'firebase/compat/auth';
 import {getDatabase, ref, get} from 'firebase/database';
 import {useNavigation, useRoute} from '@react-navigation/native';
 
-
 const HomeScreen = () => {
   const navigation = useNavigation();
   const route = useRoute();
@@ -28,8 +27,7 @@ const HomeScreen = () => {
     const getUserUsername = async () => {
       try {
         const db = getDatabase();
-        const userRef = ref(db,
-           'users/' + uid);
+        const userRef = ref(db, 'users/' + uid);
         const snapshot = await get(userRef);
         if (snapshot.exists()) {
           const userData = snapshot.val();
@@ -45,27 +43,30 @@ const HomeScreen = () => {
     getUserUsername();
   }, [uid]);
   return (
-    <ScrollView style={{flex:1}}>
-      
+    <ScrollView style={{flex: 1}}>
       <View
         style={{
-            flex:1,
+          flex: 1,
           alignItems: 'center',
           justifyContent: 'center',
-          
-          height: 200,
-          width: 410,
+          height: '100%',
+          width: 400,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
-          backgroundColor:'#ff8c1a'
-          
+          backgroundColor: '#ff8c1a',
         }}>
-        <Text style={{color: 'black', fontSize: 22, marginTop: 10, fontWeight:'bold'}}>
+        <Text
+          style={{
+            color: 'black',
+            fontSize: 22,
+            marginTop: 10,
+            fontWeight: 'bold',
+          }}>
           Hi : {username}
         </Text>
         <Image
           source={require('../../../assets/images/emoji.png')}
-          style={{height: 170, width: 170}}
+          style={{height: 265, width: 170}}
         />
       </View>
       <View
@@ -74,7 +75,7 @@ const HomeScreen = () => {
           justifyContent: 'center',
           height: 427,
           width: 410,
-          backgroundColor:'#ff8c1a'
+          backgroundColor: '#ff8c1a',
         }}>
         <ImageBackground
           source={require('../../../assets/images/backgroundscreen.jpg')}
@@ -82,11 +83,10 @@ const HomeScreen = () => {
             flex: 1,
             height: '100%',
             width: '98%',
-            justifyContent:'center',
+            justifyContent: 'center',
             borderTopLeftRadius: 20,
             borderTopRightRadius: 20,
-          }}
-          ></ImageBackground>
+          }}></ImageBackground>
       </View>
     </ScrollView>
   );

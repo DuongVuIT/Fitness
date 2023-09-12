@@ -37,6 +37,18 @@ export default function Back({navigation}) {
             </Text>
           </View>
         </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('inverted')}>
+          <View style={styles.view_img}>
+            <ImageBackground
+              resizeMode="stretch"
+              style={styles.image}
+              source={require('../../../assets/gif/back/Inverted-Row.gif')}></ImageBackground>
+            <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+              Inverted Row
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     </ScrollView>
   );

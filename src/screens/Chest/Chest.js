@@ -43,9 +43,9 @@ export default function Chest({navigation}) {
             <ImageBackground
               resizeMode="stretch"
               style={styles.image}
-              source={require('../../../assets/gif/chest/Incline-DB-Bench-Press-1.gif')}></ImageBackground>
+              source={require('../../../assets/gif/chest/Incline-Dumbbell-Press.gif')}></ImageBackground>
             <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
-              INCLIN DUMBBELL BENCH PRESS
+              INCLINE DUMBBELL BENCH PRESS
             </Text>
           </View>
         </TouchableWithoutFeedback>

@@ -26,14 +26,26 @@ export default function Leg({navigation}) {
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('BarbellSquat')}>
+          onPress={() => navigation.navigate('legextension')}>
           <View style={styles.view_img}>
             <ImageBackground
               resizeMode="stretch"
               style={styles.image}
-              source={require('../../../assets/gif/leg/barbellSquat.gif')}></ImageBackground>
+              source={require('../../../assets/gif/leg/legextension.gif')}></ImageBackground>
             <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
-              Barbell Squat
+              Leg Extension
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('legextension')}>
+          <View style={styles.view_img}>
+            <ImageBackground
+              resizeMode="stretch"
+              style={styles.image}
+              source={require('../../../assets/gif/leg/legextension.gif')}></ImageBackground>
+            <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+              Leg Extension
             </Text>
           </View>
         </TouchableWithoutFeedback>

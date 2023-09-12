@@ -21,7 +21,7 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [loginStatus, setLoginStatus] = useState('');
@@ -54,9 +54,7 @@ const LoginScreen = () => {
       .signInWithEmailAndPassword(email, password)
       .then(userCredential => {
         const user = userCredential.user;
-        Alert.alert('Notification', 'Hi, Welcome to my App', [
-          {text: 'OK'},
-        ]);
+        Alert.alert('Notification', 'Hi, Welcome to my App', [{text: 'OK'}]);
 
         navigation.navigate('Exercise', {uid: user.uid});
       })
@@ -98,6 +96,8 @@ const LoginScreen = () => {
                   borderRadius: 20,
                   borderColor: '#bbb',
                   fontSize: 20,
+                  width: '100%',
+                  height: 50,
                   color: 'white',
                 }}
                 value={email}
@@ -112,6 +112,8 @@ const LoginScreen = () => {
                   borderRadius: 20,
                   borderColor: '#bbb',
                   fontSize: 20,
+                  width: '100%',
+                  height: 50,
                   color: 'white',
                 }}
                 value={password}
@@ -124,7 +126,9 @@ const LoginScreen = () => {
               <Text style={{color: 'red', fontSize: 20, marginBottom: 5}}>
                 {loginStatus}
               </Text>
-              <TouchableOpacity onPress={LoginHandler}>
+              <TouchableOpacity
+                style={{backgroundColor: 'blue', borderRadius: 20}}
+                onPress={LoginHandler}>
                 <Text style={styles.button}>Login</Text>
               </TouchableOpacity>
               <View style={{flexDirection: 'row'}}>
@@ -163,9 +167,6 @@ const styles = StyleSheet.create({
   },
   button: {
     fontSize: 30,
-    borderWidth: 1,
-    borderRadius: 10,
-    backgroundColor: 'blue',
     color: '#ffffff',
     textAlign: 'center',
     alignItems: 'center',

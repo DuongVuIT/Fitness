@@ -1,12 +1,25 @@
-import {View, ScrollView, StyleSheet} from 'react-native';
+import {
+  View,
+  ScrollView,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
 import CustomImage from '../../components/CustomImage';
-const GymExercise = ({navigation}) => {
+import {useNavigation} from '@react-navigation/native';
+const GymExercise = () => {
+  const navigation = useNavigation();
   return (
     <ScrollView overScrollMode="never">
-      <View style={styles.container}>
+      <View>
         <CustomImage
-          onPress={() => navigation.navigate('CHEST')}
+          onPress={() => {
+            console.log('pppppp');
+            navigation.navigate('CHEST');
+          }}
           source={require('../../../assets/images/chest.jpg')}
           text="CHEST"
         />

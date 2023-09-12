@@ -4,7 +4,7 @@ import React from 'react';
 import CustomExercise from '../../components/CustomExercise';
 const Dumbell = () => {
   const data = {
-    img: require('../../../assets/gif/chest/Incline-DB-Bench-Press-1.gif'),
+    img: require('../../../assets/gif/chest/Incline-Dumbbell-Press.gif'),
     heading: 'Chest',
     workout: 'Incline Dumbell Bench Press',
     description:

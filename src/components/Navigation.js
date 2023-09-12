@@ -6,6 +6,7 @@ import {
   DrawerItem,
   createDrawerNavigator,
 } from '@react-navigation/drawer';
+import AntDesign from 'react-native-vector-icons/FontAwesome5';
 import InclineBench from '../screens/Chest/InclineBench';
 import Shoulder from '../screens/Shoulder/Shoulder';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -14,7 +15,6 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Login from '../screens/User/Login';
 import Register from '../screens/User/Register';
 import BenchPress from '../screens/Chest/BenchPress';
-import Workout from '../screens/TabNavigation/Workout';
 import Dumbell from '../screens/Chest/Dumbell';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
@@ -22,6 +22,7 @@ import 'firebase/compat/auth';
 import {Alert, View} from 'react-native';
 import GymExercise from '../screens/TabNavigation/GymExercise';
 import HomeExercise from '../screens/TabNavigation/HomeExercise';
+import LegExtension from '../screens/Leg/LegExtension';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Chest from '../screens/Chest/Chest';
 import DumbbellLateralRaise from '../screens/Shoulder/DumbbellLateralRaise';
@@ -38,6 +39,7 @@ import Ultility from '../screens/Ultility/Ultility';
 import BmiCalculator from '../screens/Ultility/BmiCalculator';
 import Neck from '../screens/Neck/Neck';
 import OneRepMax from '../screens/Ultility/OneRepMax';
+import InvertedRow from '../screens/Back/InvertedRow';
 const Tab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -49,7 +51,7 @@ function CustomNavigation({navigation}) {
       <View style={{flex: 1, marginTop: 20}}>
         <DrawerItem
           label="Home"
-          icon={() => <FontAwesome5 name="home" size={20} color="black" />}
+          icon={() => <AntDesign name="accusoft" size={20} color="black" />}
           onPress={() => navigation.navigate('HOME')}
         />
 
@@ -101,7 +103,6 @@ function ExerciseOnTop() {
       screenOptions={{tabBarLabelStyle: {fontSize: 16, color: 'black'}}}>
       <TopTab.Screen name="Gym" component={GymExercise} />
       <TopTab.Screen name="Home" component={HomeExercise} />
-      <TopTab.Screen name="Workout" component={Workout} />
     </TopTab.Navigator>
   );
 }
@@ -204,11 +205,21 @@ const Navigation = () => {
           component={BmiCalculator}
         />
         <Stack.Screen
+          name="inverted"
+          options={{headerTitle: 'INVERTED ROW'}}
+          component={InvertedRow}
+        />
+        <Stack.Screen
           name="repmax"
           options={{headerTitle: 'ONE REP MAX'}}
           component={OneRepMax}
         />
         <Stack.Screen name="Neck" component={Neck} />
+        <Stack.Screen
+          name="legextension"
+          options={{headerTitle: 'Leg Extension'}}
+          component={LegExtension}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
