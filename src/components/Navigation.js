@@ -40,6 +40,13 @@ import BmiCalculator from '../screens/Ultility/BmiCalculator';
 import Neck from '../screens/Neck/Neck';
 import OneRepMax from '../screens/Ultility/OneRepMax';
 import InvertedRow from '../screens/Back/InvertedRow';
+import Hacksquat from '../screens/Leg/Hacksquat';
+import EzBarCurl from '../screens/Bicep/EzBarCurl';
+import CableCurl from '../screens/Bicep/CableCurl';
+import Triceps from '../screens/Triceps/Triceps';
+import Dips from '../screens/Triceps/Dips';
+import OverHead from '../screens/Triceps/OverHead';
+import Ropedown from '../screens/Triceps/Ropedown';
 const Tab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -198,7 +205,11 @@ const Navigation = () => {
         <Stack.Screen name="Leg" component={Leg} />
         <Stack.Screen name="BarbellSquat" component={BarbellSquat} />
         <Stack.Screen name="Biceps" component={Bicep} />
-        <Stack.Screen name="HammerCurl" component={HammerCurl} />
+        <Stack.Screen
+          name="HammerCurl"
+          options={{headerTitle: 'Hammer Curl'}}
+          component={HammerCurl}
+        />
         <Stack.Screen
           name="Bmi"
           options={{headerTitle: 'BMI CALCULATOR'}}
@@ -220,6 +231,33 @@ const Navigation = () => {
           options={{headerTitle: 'Leg Extension'}}
           component={LegExtension}
         />
+        <Stack.Screen
+          name="hacksquat"
+          options={{headerTitle: 'Hack Squat'}}
+          component={Hacksquat}
+        />
+        <Stack.Screen
+          name="ezbar"
+          component={EzBarCurl}
+          options={{headerTitle: 'Ez Bar Curl'}}
+        />
+        <Stack.Screen
+          name="cablecurl"
+          options={{headerTitle: 'Cable Curl'}}
+          component={CableCurl}
+        />
+        <Stack.Screen
+          name="triceps"
+          options={{headerTitle: 'Triceps'}}
+          component={Triceps}
+        />
+        <Stack.Screen name="Dips" component={Dips} />
+        <Stack.Screen
+          name="overhead"
+          options={{headerTitle: 'Dumbbell Overhead '}}
+          component={OverHead}
+        />
+        <Stack.Screen name="ropedown" component={Ropedown} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -25,6 +25,29 @@ export default function Bicep({navigation}) {
             </Text>
           </View>
         </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('ezbar')}>
+          <View style={styles.view_img}>
+            <ImageBackground
+              resizeMode="stretch"
+              style={styles.image}
+              source={require('../../../assets/gif/biceps/04461301-EZ-Barbell-Close-grip-Curl_Upper-Arms_360.gif')}></ImageBackground>
+            <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+              HAMMER CURL
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('cablecurl')}>
+          <View style={styles.view_img}>
+            <ImageBackground
+              resizeMode="stretch"
+              style={styles.image}
+              source={require('../../../assets/gif/biceps/cable-curl.gif')}></ImageBackground>
+            <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
+              Cable Curl
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
       </View>
     </ScrollView>
   );

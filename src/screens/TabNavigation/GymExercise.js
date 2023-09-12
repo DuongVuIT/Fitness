@@ -44,6 +44,7 @@ const GymExercise = () => {
           text="BICEPS"
         />
         <CustomImage
+          onPress={() => navigation.navigate('triceps')}
           source={require('../../../assets/images/triceps.jpg')}
           text="TRICEPS"
         />

@@ -13,13 +13,13 @@ const CustomImage = ({onPress, source, text}) => {
   return (
     <View style={styles.container}>
       <View style={styles.viewImg}>
-        <TouchableWithoutFeedback onPress={onPress}>
+        <TouchableOpacity activeOpacity={1} onPress={onPress}>
           <ImageBackground source={source} style={styles.image}>
             <View style={styles.textCenter}>
               <Text style={styles.text}>{text}</Text>
             </View>
           </ImageBackground>
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
       </View>
     </View>
   );

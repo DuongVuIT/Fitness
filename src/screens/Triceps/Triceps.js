@@ -8,43 +8,42 @@ import {
 } from 'react-native';
 import React from 'react';
 
-export default function Leg({navigation}) {
+export default function Triceps({navigation}) {
   return (
     <ScrollView overScrollMode="never" style={{backgroundColor: '#ffffff'}}>
       <View style={styles.container}>
-        <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('BarbellSquat')}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Dips')}>
           <View style={styles.view_img}>
             <ImageBackground
               resizeMode="stretch"
               style={styles.image}
-              source={require('../../../assets/gif/leg/barbellSquat.gif')}></ImageBackground>
+              source={require('../../../assets/gif/triceps/dips.gif')}></ImageBackground>
             <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
-              Barbell Squat
+              Dips
             </Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('legextension')}>
+          onPress={() => navigation.navigate('overhead')}>
           <View style={styles.view_img}>
             <ImageBackground
               resizeMode="stretch"
               style={styles.image}
-              source={require('../../../assets/gif/leg/legextension.gif')}></ImageBackground>
+              source={require('../../../assets/gif/triceps/overhead.gif')}></ImageBackground>
             <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
-              Leg Extension
+              Dumbbell Overhead
             </Text>
           </View>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback
-          onPress={() => navigation.navigate('hacksquat')}>
+          onPress={() => navigation.navigate('overhead')}>
           <View style={styles.view_img}>
             <ImageBackground
               resizeMode="stretch"
               style={styles.image}
-              source={require('../../../assets/gif/leg/Barbell-Hack-Squat.gif')}></ImageBackground>
+              source={require('../../../assets/gif/triceps/Ropedown.gif')}></ImageBackground>
             <Text style={{fontSize: 20, color: 'black', fontWeight: 'bold'}}>
-              Hack Squat
+              Rope Pressdown
             </Text>
           </View>
         </TouchableWithoutFeedback>

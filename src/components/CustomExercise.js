@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   view_image: {
     borderWidth: 0.2,
-    width: 400,
+    width: 385,
     marginLeft: 5,
     height: 300,
     borderRadius: 10,
