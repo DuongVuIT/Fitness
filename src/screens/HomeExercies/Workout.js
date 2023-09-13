@@ -41,7 +41,6 @@ export default function Workout() {
         ))}
       </ScrollView>
       <Pressable
-        activeOpacity={0}
         onPress={() =>
           navigation.navigate('fit', {
             exercises: route.params.exercises,

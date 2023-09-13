@@ -8,14 +8,13 @@ export default function Rest() {
   const exercises = route.params.exercises;
   console.log(route.params.exercises);
   let timer = 0;
-  const [time, setTime] = useState(8);
+  const [time, setTime] = useState(3);
   const startTime = () => {
     setTimeout(() => {
       if (time <= 0) {
         navigation.navigate('fit', {
           exercises: route.params.exercises,
         });
-        console.log('goback', exercises);
         clearTimeout(timer);
       }
       setTime(time - 1);

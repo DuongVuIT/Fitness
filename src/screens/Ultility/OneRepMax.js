@@ -165,7 +165,7 @@ export default function OneRepMax() {
           <View>
             <Text style={styles.information}>
               Type in the weight you have been using and the number of
-              repetiotion which you used with that weight
+              repetiotion which you used with that weight (not more than 12)
             </Text>
           </View>
         </View>

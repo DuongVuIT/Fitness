@@ -51,7 +51,6 @@ export default function BmiCalculator() {
           <View style={styles.view_weight}>
             <Text style={styles.text_weight}>WEIGHT(KG)</Text>
             <TextInput
-              placeholder="0"
               placeholderTextColor={'black'}
               style={styles.text_input}
               value={weight.toString()}
@@ -84,7 +83,6 @@ export default function BmiCalculator() {
           <View style={styles.view_weight}>
             <Text style={styles.text_weight}>HEIGHT(CM)</Text>
             <TextInput
-              placeholder="0"
               placeholderTextColor={'black'}
               style={styles.text_input}
               value={height.toString()}
@@ -262,6 +260,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: 'black',
     fontSize: 20,
+    marginTop: 20,
   },
   bmi_container: {
     flex: 1,

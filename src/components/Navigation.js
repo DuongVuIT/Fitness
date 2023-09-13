@@ -51,6 +51,7 @@ import Ropedown from '../screens/Triceps/Ropedown';
 import Workout from '../screens/HomeExercies/Workout';
 import FitScreen from '../screens/HomeExercies/FitScreen';
 import Rest from '../screens/HomeExercies/Rest';
+import Fitness from '../data/Fitness';
 const Tab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -263,8 +264,21 @@ const Navigation = () => {
         />
         <Stack.Screen name="ropedown" component={Ropedown} />
         <Stack.Screen name="Workout" component={Workout} />
-        <Stack.Screen name="fit" component={FitScreen} />
-        <Stack.Screen name="rest" component={Rest} />
+        <Stack.Screen
+          name="fit"
+          options={{headerTitle: 'Fitness'}}
+          component={FitScreen}
+        />
+        <Stack.Screen
+          name="rest"
+          options={{headerTitle: 'Rest'}}
+          component={Rest}
+        />
+        <Stack.Screen
+          name="homefit"
+          options={{headerTitle: 'Home Fit'}}
+          component={Fitness}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
