@@ -1,15 +1,11 @@
-import {View, Text, ScrollView} from 'react-native';
+import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import CustomImage from '../../components/CustomImage';
+import Fitness from '../../data/Fitness';
 const HomeExercise = ({navigation}) => {
   return (
     <ScrollView>
       <View>
-        <CustomImage
-          onPress={() => navigation.navigate('Neck')}
-          source={require('../../../assets/gif/neck/NeckRotation.gif')}
-          text="Neck"
-        />
+        <Fitness />
       </View>
     </ScrollView>
   );

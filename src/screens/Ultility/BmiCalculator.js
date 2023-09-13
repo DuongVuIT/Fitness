@@ -8,7 +8,7 @@ import {
 import React, {useState} from 'react';
 import Icomoon from 'react-native-icomoon';
 import selection from '../../components/icons/selection.json';
-import {TextInput} from 'react-native-gesture-handler';
+import {TextInput} from 'react-native';
 import {Image} from 'react-native';
 
 export default function BmiCalculator() {

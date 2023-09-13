@@ -17,7 +17,6 @@ const GymExercise = () => {
       <View>
         <CustomImage
           onPress={() => {
-            console.log('pppppp');
             navigation.navigate('CHEST');
           }}
           source={require('../../../assets/images/chest.jpg')}

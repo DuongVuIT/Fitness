@@ -36,6 +36,7 @@ import BarbellSquat from '../screens/Leg/BarbellSquat';
 import HammerCurl from '../screens/Bicep/HammerCurl';
 import Bicep from '../screens/Bicep/Bicep';
 import Ultility from '../screens/Ultility/Ultility';
+import Fullbody from '../screens/HomeExercies/Workout';
 import BmiCalculator from '../screens/Ultility/BmiCalculator';
 import Neck from '../screens/Neck/Neck';
 import OneRepMax from '../screens/Ultility/OneRepMax';
@@ -47,6 +48,9 @@ import Triceps from '../screens/Triceps/Triceps';
 import Dips from '../screens/Triceps/Dips';
 import OverHead from '../screens/Triceps/OverHead';
 import Ropedown from '../screens/Triceps/Ropedown';
+import Workout from '../screens/HomeExercies/Workout';
+import FitScreen from '../screens/HomeExercies/FitScreen';
+import Rest from '../screens/HomeExercies/Rest';
 const Tab = createBottomTabNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -58,7 +62,7 @@ function CustomNavigation({navigation}) {
       <View style={{flex: 1, marginTop: 20}}>
         <DrawerItem
           label="Home"
-          icon={() => <AntDesign name="accusoft" size={20} color="black" />}
+          icon={() => <AntDesign name="home" size={20} color="black" />}
           onPress={() => navigation.navigate('HOME')}
         />
 
@@ -258,6 +262,9 @@ const Navigation = () => {
           component={OverHead}
         />
         <Stack.Screen name="ropedown" component={Ropedown} />
+        <Stack.Screen name="Workout" component={Workout} />
+        <Stack.Screen name="fit" component={FitScreen} />
+        <Stack.Screen name="rest" component={Rest} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -21,10 +21,6 @@ const CustomExercise = ({
     <View style={styles.container}>
       <View style={styles.view_image}>
         <Image style={styles.image} source={imageSource} />
-        {/* <TouchableOpacity onPress={toggleIcon}>
-          <Icon name={isIconActive ? 'heart' : 'gratipay'} size={30} />
-        </TouchableOpacity>
-        <Text style={styles.likeText}>Like</Text> */}
       </View>
       <View style={styles.contentContainer}>
         <ScrollView style={styles.container_content}>
